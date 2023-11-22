@@ -20,5 +20,6 @@ public:
 	void setNoRows(int noRows);
 	void setNoOfSeatsPerRow();
 
+
 	
 };
