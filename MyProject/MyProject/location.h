@@ -14,6 +14,7 @@ public:
 
 
 	char* getAdress();
+	void setAdress(char* adress);
 
 	
     

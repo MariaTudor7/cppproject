@@ -16,4 +16,10 @@ public:
 	string getEventName();
 	int getNoSeats();
 	int* getSeatTaken();
+
+	//setters
+	void setEventName(string eventName);
+	void setNoSeats(int noSeats);
+	void setSeatTaken(int* seatTaken);
+
 };

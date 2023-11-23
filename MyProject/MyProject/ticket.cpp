@@ -1,15 +1,18 @@
 #include "ticket.h"
 #include <iostream>
 #include <string>
+#include <string.h>
+
 using namespace std;
 
 Ticket::Ticket()
 {
 	id=nullptr;
-	price=0.0;
+	//price=0.0;
     firstNameLastName="";
 	row=0;
 	seat=0;
+	//type
 }
 
 //getters-incomplete
@@ -21,10 +24,10 @@ char* Ticket::getId()
 	return idCopy;
 }
 
-float Ticket::getPrice()
-{
-	return this->price;
-}
+//float Ticket::getPrice()
+//{
+//	return this->price;
+//}
 
 string Ticket::getName()
 {
@@ -39,4 +42,42 @@ int Ticket::getRow()
 int Ticket::getSeat()
 {
 	return this->seat;
+}
+
+//setters
+
+void Ticket::setId(const char* id) {
+	
+	if (id != nullptr && strlen(id) == 8)
+	{
+
+		strcpy_s(this->id, 8, id);
+	}
+	else
+	{
+		throw exception("Wrong id");
+	}
+}
+
+void Ticket::setName(string name)
+{
+
+	this->firstNameLastName = name;
+}
+
+void Ticket:: setRow(int row);
+{
+	if (row >= 3 && row <= 15)
+		this->row = row;
+	else
+		throw exception("This row does not exist");
+	
+}
+void Ticket:: setSeat(int seat);
+{
+	if (seat >= 5 && seat <= 30)
+      this->seat = seat;
+       else
+      throw exception("This seat does not exist")
+
 }

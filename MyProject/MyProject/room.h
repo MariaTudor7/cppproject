@@ -18,7 +18,8 @@ public:
 	//setters-add validation
 	void roomIsVIP();
 	void setNoRows(int noRows);
-	void setNoOfSeatsPerRow();
+	void setNoOfSeatsPerRow(int* noOfSeatsPerRow);
+
 
 
 	

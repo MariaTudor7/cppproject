@@ -31,12 +31,12 @@ int* Room::getNoOfSeatsPerRow()
 }
 
 //setters
-void roomIsVIP()
+void Room::roomIsVIP()
 {
 	this->isVIP = true;
 }
 
-void setNoRows(int noRows)
+void Room::setNoRows(int noRows)
 {
 	if (noRows >= 3 && noRows <= 15) {
 		this->noRows = noRows;
@@ -45,4 +45,24 @@ void setNoRows(int noRows)
 		throw exception("Wrong value for age");
 	}
 
+}
+
+void Room::setNoOfSeatsPerRow(int* noOfSeatsPerRow)
+{
+	if (this->noOfSeatsPerRow != nullptr)
+	{
+		delete[] this->noOfSeatsPerRow;
+	}
+	if (noOfSeatsPerRow != nullptr)
+	{
+		this->noOfSeatsPerRow = new int[this->noRows];
+		for (int i = 0; i < this->noRows; i++) {
+			this->noOfSeatsPerRow[i] = noOfSeatsPerRow[i];
+		}
+	}
+	else
+	{
+		this->noOfSeatsPerRow = nullptr;
+	}
+	
 }
