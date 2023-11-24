@@ -3,9 +3,24 @@
 #include <string>
 using namespace std;
 
+enum class Month {
+	JANUARY = 1,
+	FEBRUARY,
+	MARCH,
+	APRIL,
+	MAY,
+	JUNE,
+	JULY,
+	AUGUST,
+	SEPTEMBER,
+	OCTOBER,
+	NOVEMBER,
+	DECEMBER
+};
 class Event {
 private:
 	string eventName;
+	Month month;
 	//string time;
 	//string date;
 	//int noEvents;

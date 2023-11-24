@@ -4,19 +4,22 @@
 //#include <random>
 using namespace std;
 
+enum CategoryType { VIP = 1, PROMO, NORMAL, STUDENT, DISABILITY };
+
+
 class Ticket {
 private:
 	char* id;
 	string firstNameLastName;
 	int row;
 	int seat;
-	//add type (VIP, NORMAL)
-	//add type price (student, VIP, NORMAL, )
+	float price;
+	CategoryType category;
 
 public:
 	//getters
 	char* getId();
-	//float getPrice();
+	float getPrice();
 	string getName();
 	int getRow();
 	int getSeat();
@@ -27,5 +30,6 @@ public:
 	void setName(string name);
 	void setRow(int row);
 	void setSeat(int seat);
+
 
 };
