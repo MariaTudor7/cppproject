@@ -65,7 +65,11 @@ void Event::setSeatTaken(int* seatTaken) {
 	    }
 	
 }
-
+Event::~Event() {
+	if (this->seatTaken != nullptr) {
+		delete[] this->seatTaken;
+	}
+}
 
 
 

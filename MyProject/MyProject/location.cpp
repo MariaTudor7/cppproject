@@ -19,7 +19,7 @@ void Location::setAdress(char* adress)
 {
 	if(this->adress!=nullptr)
 	{
-		delete[]this->nullptr;
+		delete[]this->adress;
 	}
 	if (adress != nullptr)
 		strcpy_s(this->adress, 99, adress);
@@ -27,3 +27,8 @@ void Location::setAdress(char* adress)
 		throw exception("wrong adress");
 }
 
+Location::~Location()
+{
+	if (this->adress != nullptr)
+		delete[] this->adress;
+}

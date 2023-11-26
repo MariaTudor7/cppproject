@@ -66,3 +66,9 @@ void Room::setNoOfSeatsPerRow(int* noOfSeatsPerRow)
 	}
 	
 }
+
+Room::~Room()
+{
+	if (this->noOfSeatsPerRow != nullptr)
+		delete[] this->noOfSeatsPerRow;
+}

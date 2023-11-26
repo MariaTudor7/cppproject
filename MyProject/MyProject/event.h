@@ -38,4 +38,6 @@ public:
 	void setNoSeats(int noSeats);
 	void setSeatTaken(int* seatTaken);
 
+	//destructor
+	~Event();
 };

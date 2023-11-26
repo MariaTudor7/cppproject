@@ -10,11 +10,17 @@ private:
 public:
 
 	Location();
-	//getters
+	//getter
 
 
 	char* getAdress();
+
+	//setter
+
 	void setAdress(char* adress);
+
+	//destructor
+	~Location();
 
 	
     

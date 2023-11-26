@@ -20,7 +20,8 @@ public:
 	void setNoRows(int noRows);
 	void setNoOfSeatsPerRow(int* noOfSeatsPerRow);
 
-
+	//destructor
+	~Room();
 
 	
 };

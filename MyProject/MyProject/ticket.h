@@ -32,5 +32,7 @@ public:
 	void setRow(int row);
 	void setSeat(int seat);
 
+	//destructor
+	~Ticket();
 
 };

@@ -107,9 +107,14 @@ void Ticket::setSeat(int seat)
 }
 
 
-void Ticket:: setPrice(float price) {
+void Ticket::setPrice(float price) {
 	if (price >= 20 && price <= 110)
 		this->price = price;
 	else
 		throw exception("Wrong price");
+}
+
+Ticket::~Ticket() {
+	if (this->id != nullptr)
+		delete[] this->id;
 }
