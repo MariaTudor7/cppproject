@@ -28,7 +28,7 @@ int* Event::getSeatTaken()
 		copySeat[i] = this->seatTaken[i];
 	return copySeat;
 }
-Month getMonth() {
+Month Event::getMonth() {
 	return this->month;
 }
 
@@ -47,10 +47,10 @@ void Event::setNoSeats(int noSeats) {
 }
 
 void Event::setSeatTaken(int* seatTaken) {
-
 	if (this->seatTaken != nullptr) {
 		delete[] this->seatTaken;
 	}
+	
 	if (seatTaken != nullptr)
 	{
 		this->seatTaken = new int[this->noSeats];
@@ -65,5 +65,7 @@ void Event::setSeatTaken(int* seatTaken) {
 	    }
 	
 }
+
+
 
 
