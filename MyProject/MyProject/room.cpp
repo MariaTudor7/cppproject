@@ -7,6 +7,8 @@ Room::Room()
 	isVIP=false;
 	noRows=0;
 	noOfSeatsPerRow=nullptr;
+
+	
 }
 
 //getters-incomplete
@@ -38,7 +40,7 @@ void Room::roomIsVIP()
 
 void Room::setNoRows(int noRows)
 {
-	if (noRows >= 3 && noRows <= 15) {
+	if (noRows >= MIN_NO_OF_ROWS && noRows <= MAX_NO_OF_ROWS) {
 		this->noRows = noRows;
 	}
 	else {
@@ -47,28 +49,35 @@ void Room::setNoRows(int noRows)
 
 }
 
-void Room::setNoOfSeatsPerRow(int* noOfSeatsPerRow)
+void Room::setNoOfSeatsPerRow(const int* noOfSeatsPerRow, int noRows)
 {
 	if (this->noOfSeatsPerRow != nullptr)
 	{
 		delete[] this->noOfSeatsPerRow;
 	}
-	if (noOfSeatsPerRow != nullptr)
+	if (noOfSeatsPerRow == nullptr)
 	{
-		this->noOfSeatsPerRow = new int[this->noRows];
-		for (int i = 0; i < this->noRows; i++) {
-			this->noOfSeatsPerRow[i] = noOfSeatsPerRow[i];
-		}
+		throw exception("noOfSeatsPerRow missing");
 	}
 	else
 	{
-		this->noOfSeatsPerRow = nullptr;
+		this->noOfSeatsPerRow = new int[noRows];
+		for (int i = 0; i < noRows; i++) {
+
+			this->noOfSeatsPerRow[i] = noOfSeatsPerRow[i];
+		}
 	}
 	
+	
 }
+
 
 Room::~Room()
 {
 	if (this->noOfSeatsPerRow != nullptr)
 		delete[] this->noOfSeatsPerRow;
 }
+
+
+int Room::MIN_NO_OF_ROWS = 3;
+int Room::MAX_NO_OF_ROWS = 15;

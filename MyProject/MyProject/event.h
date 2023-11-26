@@ -26,6 +26,12 @@ private:
 	//int noEvents;
 	int noSeats;
 	int* seatTaken;
+
+public:
+	//static attributes
+	static int MIN_NO_OF_SEATS;
+	static int OCCUPIED;
+	static int FREE;
 public:
 	//gettters
 	string getEventName();
@@ -36,7 +42,8 @@ public:
 	//setters
 	void setEventName(string eventName);
 	void setNoSeats(int noSeats);
-	void setSeatTaken(int* seatTaken);
+	void setSeatTaken(const int* seatTaken, int noSeats);
+
 
 	//destructor
 	~Event();

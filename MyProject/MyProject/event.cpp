@@ -36,33 +36,46 @@ Month Event::getMonth() {
 
 void Event::setEventName(string eventName)
 {
-	//validation
+    
 	this->eventName = eventName;
 }
 
+
+
 void Event::setNoSeats(int noSeats) {
 
-	//add validation
-	this->noSeats = noSeats;
+	if (noSeats > MIN_NO_OF_SEATS)
+		this->noSeats = noSeats;
+	else
+		throw exception("Too little seats");
 }
 
-void Event::setSeatTaken(int* seatTaken) {
+
+
+void Event::setSeatTaken(const int* seatTaken, int noSeats) {
+
+
 	if (this->seatTaken != nullptr) {
 		delete[] this->seatTaken;
 	}
+
+
+	if (seatTaken == nullptr ) {
+		throw exception("No seats");
+	}
+	else
 	
-	if (seatTaken != nullptr)
 	{
-		this->seatTaken = new int[this->noSeats];
-		for (int i = 0; i < this->noSeats; i++)
+		this->seatTaken = new int[noSeats];
+		for (int i = 0; i < noSeats; i++)
 		{
+
+			if (seatTaken[i] != OCCUPIED || seatTaken[i] != FREE)
+				throw exception("Wrong seat value");
 			this->seatTaken[i] = seatTaken[i];
 		}
 	}
-	    else 
-	    {
-		this->seatTaken = nullptr;
-	    }
+	   
 	
 }
 Event::~Event() {
@@ -71,5 +84,8 @@ Event::~Event() {
 	}
 }
 
+int Event::MIN_NO_OF_SEATS = 14;
+int Event::OCCUPIED = 1;
+int Event::FREE = 0;
 
 

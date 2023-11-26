@@ -8,6 +8,10 @@ private:
 	int noRows;
 	int* noOfSeatsPerRow;
 	
+public:
+	//static attributes
+	static int MIN_NO_OF_ROWS;
+	static int MAX_NO_OF_ROWS;
 
 public:
 	//getters
@@ -18,10 +22,12 @@ public:
 	//setters-add validation
 	void roomIsVIP();
 	void setNoRows(int noRows);
-	void setNoOfSeatsPerRow(int* noOfSeatsPerRow);
+	void setNoOfSeatsPerRow(const int* noOfSeatsPerRow, int noRows);
+
 
 	//destructor
 	~Room();
 
 	
+
 };

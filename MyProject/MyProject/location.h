@@ -17,7 +17,7 @@ public:
 
 	//setter
 
-	void setAdress(char* adress);
+	void setAdress(const char* adress);
 
 	//destructor
 	~Location();

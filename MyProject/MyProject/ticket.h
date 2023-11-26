@@ -17,6 +17,14 @@ private:
 	CategoryType category;
 
 public:
+	//static attributes
+	static int MIN_NO_OF_SEATS;
+	static int MAX_NO_OF_SEATS;
+	static int MIN_NO_OF_ROWS;
+	static int MAX_NO_OF_ROWS;
+	static int LENGHT_OF_ID;
+	static int MIN_PRICE;
+public:
 	//getters
 	char* getId();
 	float getPrice();
@@ -24,6 +32,8 @@ public:
 	int getRow();
 	int getSeat();
 	string getCategoryName();
+
+
 
 //setters
 	void setId(const char* id);
@@ -35,4 +45,5 @@ public:
 	//destructor
 	~Ticket();
 
+	
 };

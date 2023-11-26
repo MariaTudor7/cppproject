@@ -15,14 +15,17 @@ char* Location::getAdress()
 	return adressCopy;
 }
 
-void Location::setAdress(char* adress)
+void Location::setAdress(const char* adress)
 {
 	if(this->adress!=nullptr)
 	{
 		delete[]this->adress;
 	}
 	if (adress != nullptr)
-		strcpy_s(this->adress, 99, adress);
+	{
+		this->adress = new char[strlen(adress) + 1];
+		strcpy_s(this->adress, strlen(adress)+1, adress);
+	}
 	else
 		throw exception("wrong adress");
 }

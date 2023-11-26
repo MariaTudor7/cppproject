@@ -14,6 +14,10 @@ Ticket::Ticket()
 	row=0;
 	seat=0;
 	category=CategoryType::NORMAL;
+
+	
+	
+
 	
 }
 
@@ -70,15 +74,14 @@ void Ticket::setId(const char* id) {
 		delete[] this->id;
 	}
 
-	if (id != nullptr && strlen(id) == 8)
+	if (id == nullptr || strlen(id) != Ticket::LENGHT_OF_ID)
+		throw exception("Wrong lenght of id");
+	else
 	{
 		this->id = new char[strlen(this->id) + 1];
 		strcpy_s(this->id, 8, id);
 	}
-	else
-	{
-		this->id=nullptr;
-	}
+
 
 
 }
@@ -91,7 +94,7 @@ void Ticket::setName(string name)
 
 void Ticket::setRow(int row)
 {
-	if (row >= 3 && row <= 15)
+	if (row >= MIN_NO_OF_ROWS && row <= MAX_NO_OF_ROWS)
 		this->row = row;
 	else
 		throw exception("This row does not exist");
@@ -99,7 +102,7 @@ void Ticket::setRow(int row)
 }
 void Ticket::setSeat(int seat)
 {
-	if (seat >= 5 && seat <= 30)
+	if (seat >= MIN_NO_OF_SEATS && seat <= MAX_NO_OF_SEATS)
 		this->seat = seat;
 	else
 		throw exception("This seat does not exist");
@@ -108,7 +111,7 @@ void Ticket::setSeat(int seat)
 
 
 void Ticket::setPrice(float price) {
-	if (price >= 20 && price <= 110)
+	if (price >MIN_PRICE)
 		this->price = price;
 	else
 		throw exception("Wrong price");
@@ -118,3 +121,11 @@ Ticket::~Ticket() {
 	if (this->id != nullptr)
 		delete[] this->id;
 }
+
+
+int Ticket:: MIN_NO_OF_SEATS = 5;
+int Ticket::MAX_NO_OF_SEATS = 30;
+int Ticket::MIN_NO_OF_ROWS = 3;
+int Ticket::MAX_NO_OF_ROWS = 15;
+int Ticket::LENGHT_OF_ID = 8;
+int Ticket::MIN_PRICE = 3;
