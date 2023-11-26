@@ -3,7 +3,7 @@
 #include <string>
 using namespace std;
 
-enum class Month {
+enum Month {
 	JANUARY = 1,
 	FEBRUARY,
 	MARCH,
@@ -31,6 +31,7 @@ public:
 	string getEventName();
 	int getNoSeats();
 	int* getSeatTaken();
+	Month getMonth();
 
 	//setters
 	void setEventName(string eventName);

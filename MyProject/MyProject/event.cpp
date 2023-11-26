@@ -9,6 +9,7 @@ Event::Event() {
 	//int noEvents;
 	 noSeats=0;
 	seatTaken=nullptr;
+	month = Month::JANUARY;
 }
 
 //getters-incomplet
@@ -26,6 +27,9 @@ int* Event::getSeatTaken()
 	for (int i = 0; i < this->noSeats; i++)
 		copySeat[i] = this->seatTaken[i];
 	return copySeat;
+}
+Month getMonth() {
+	return this->month;
 }
 
 //setters

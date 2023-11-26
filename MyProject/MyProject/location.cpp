@@ -17,6 +17,10 @@ char* Location::getAdress()
 
 void Location::setAdress(char* adress)
 {
+	if(this->adress!=nullptr)
+	{
+		delete[]this->nullptr;
+	}
 	if (adress != nullptr)
 		strcpy_s(this->adress, 99, adress);
 	else

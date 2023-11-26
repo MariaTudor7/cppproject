@@ -23,6 +23,7 @@ public:
 	string getName();
 	int getRow();
 	int getSeat();
+	string getCategoryName();
 
 //setters
 	void setId(const char* id);

@@ -13,6 +13,7 @@ Ticket::Ticket()
     firstNameLastName="";
 	row=0;
 	seat=0;
+	category=CategoryType::NORMAL;
 	
 }
 
@@ -45,19 +46,41 @@ int Ticket::getSeat()
 	return this->seat;
 }
 
+string Ticket::getCategoryName()
+{
+	switch (this->category) {
+	case VIP:
+		return "VIP";
+	case NORMAL:
+		return "Normal";
+	case STUDENT:
+		return "Student";
+	case DISABILITY:
+		return "Disability";
+	case PROMO:
+		return "Promo";
+	}
+}
+
 //setters
 
 void Ticket::setId(const char* id) {
 	
+	if (this->id != nullptr) {
+		delete[] this->id;
+	}
+
 	if (id != nullptr && strlen(id) == 8)
 	{
-
+		this->id = new char[strlen(this->id) + 1];
 		strcpy_s(this->id, 8, id);
 	}
 	else
 	{
-		throw exception("Wrong id");
+		this->id=nullptr;
 	}
+
+
 }
 
 void Ticket::setName(string name)
