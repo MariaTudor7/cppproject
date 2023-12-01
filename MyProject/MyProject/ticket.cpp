@@ -127,7 +127,24 @@ Ticket::Ticket(const Ticket& object):id(object.id) {
 	this->price = object.price;
 	Ticket::ID_VALUE++;
 }
-	
+
+
+Ticket Ticket::discount(int procent)
+{
+	if (procent > 0 && procent < 100) {
+		this->price = this->price - this->price * (procent / 100.0f);
+		this->category = PROMO;
+	}
+	return *this;
+}
+
+Ticket Ticket::giveTicketToSomeoneElse(char* otherPerson)
+{
+	delete[] this->firstNameLastName;
+	this->firstNameLastName = new char[strlen(otherPerson) + 1];
+	strcpy_s(this->firstNameLastName, strlen(otherPerson) + 1, otherPerson);
+	return *this;
+}
 
 
 
@@ -149,6 +166,7 @@ void operator<<(ostream& console, Ticket& ticket) {
 	console << endl << "Seat:" << ticket.getSeat();
 	console << endl << "Category:" << ticket.getCategoryName();
 	console << endl << "Price:" << ticket.getPrice();
+	console << endl;
 	 
 }
 
@@ -157,25 +175,23 @@ void operator<<(ostream& console, Ticket& ticket) {
 void operator>>(istream& console, Ticket& ticket)
 {
 	cout << "Introduce ticket information1!" << endl;
+
 	cout << "Full name of ticket owner (firstName lastName):";
 	string name;
 	getline(console,name);
 	delete[] ticket.firstNameLastName;
 	ticket.firstNameLastName= new char[name.length() + 1];
 	strcpy_s(ticket.firstNameLastName, name.length() + 1, name.c_str());
+
 	cout << "Row:";
 		console >> ticket.row;
-		//ticket.setRow(ticket.row);
 		
     cout << "Seat:";
 		console >> ticket.seat;
-		//ticket.setSeat(ticket.seat);
-
-		cout << "Price:";
+		
+    cout << "Price:";
 		console >> ticket.price;
-		//ticket.
-		
-		
+			
 	cout << "Ticket type (VIP=1, NORMAL=2, STUDENT=3, DISABILITY=4, PROMO=5): ";
 	int category;
 	console >> category;

@@ -49,7 +49,14 @@ public:
 //destructor
 	~Ticket();
 
+//generic methods 
+	Ticket discount(int procent);
+	Ticket giveTicketToSomeoneElse(char* otherPerson);
+
+
 	friend void operator>>(istream& console, Ticket& ticket);
+
+ 
 	
 };
 
