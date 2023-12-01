@@ -24,6 +24,9 @@ public:
 	void setNoRows(int noRows);
 	void setNoOfSeatsPerRow(const int* noOfSeatsPerRow, int noRows);
 
+	//constrctors
+	Room();
+
 
 	//destructor
 	~Room();

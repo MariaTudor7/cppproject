@@ -26,10 +26,11 @@ int Room::getNoRows()
 //review this function
 int* Room::getNoOfSeatsPerRow()
 {
-	int* copy;
-	for (int i = 0; i < noRows; i++)
+	int* copy=new int[this->noRows];
+	for (int i = 0; i <this-> noRows; i++)
 		copy[i] = this->noOfSeatsPerRow[i];
 	return copy;
+
 }
 
 //setters

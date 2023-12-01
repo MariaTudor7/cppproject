@@ -9,12 +9,13 @@ enum CategoryType { VIP = 1, PROMO, NORMAL, STUDENT, DISABILITY };
 
 class Ticket {
 private:
-	char* id;
-	string firstNameLastName;
+	const int id;
+	char* firstNameLastName;
 	int row;
 	int seat;
 	float price;
 	CategoryType category;
+	static int ID_VALUE;
 
 public:
 	//static attributes
@@ -22,13 +23,12 @@ public:
 	static int MAX_NO_OF_SEATS;
 	static int MIN_NO_OF_ROWS;
 	static int MAX_NO_OF_ROWS;
-	static int LENGHT_OF_ID;
 	static int MIN_PRICE;
 public:
 	//getters
-	char* getId();
+	int getId();
 	float getPrice();
-	string getName();
+	char* getName();
 	int getRow();
 	int getSeat();
 	string getCategoryName();
@@ -36,14 +36,23 @@ public:
 
 
 //setters
-	void setId(const char* id);
 	void setPrice(float price);
-	void setName(string name);
+	void setName(char* name);
 	void setRow(int row);
 	void setSeat(int seat);
+	void setCategory(CategoryType category);
 
-	//destructor
+//constructor
+	Ticket();
+	Ticket(char* name, int row, int seat, float price, CategoryType category);
+	Ticket(const Ticket& object);
+//destructor
 	~Ticket();
 
+	friend void operator>>(istream& console, Ticket& ticket);
 	
 };
+
+//overloading << and >>
+void operator<<(ostream& console, Ticket& ticket);
+void operator>>(istream& console, Ticket& ticket);

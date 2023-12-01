@@ -23,7 +23,7 @@ int Event::getNoSeats(){
 
 int* Event::getSeatTaken()
 {
-	int* copySeat;
+	int* copySeat=new int[this->noSeats];
 	for (int i = 0; i < this->noSeats; i++)
 		copySeat[i] = this->seatTaken[i];
 	return copySeat;

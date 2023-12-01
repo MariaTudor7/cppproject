@@ -43,7 +43,9 @@ public:
 	void setEventName(string eventName);
 	void setNoSeats(int noSeats);
 	void setSeatTaken(const int* seatTaken, int noSeats);
-
+	
+	//constructor
+	Event();
 
 	//destructor
 	~Event();
