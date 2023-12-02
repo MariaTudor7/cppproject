@@ -31,7 +31,7 @@ public:
 	char* getName();
 	int getRow();
 	int getSeat();
-	string getCategoryName();
+	CategoryType getCategoryName();
 
 
 
@@ -54,10 +54,12 @@ public:
 	Ticket giveTicketToSomeoneElse(char* otherPerson);
 
 
-	friend void operator>>(istream& console, Ticket& ticket);
+//overloading operator <= and -
+	bool operator<=(Ticket& ticket);
+	Ticket operator-(float amount);
 
- 
-	
+	friend void operator>>(istream& console, Ticket& ticket);
+	friend void operator<<(ostream& console, Ticket& ticket);
 };
 
 //overloading << and >>

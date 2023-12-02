@@ -11,6 +11,10 @@ Room::Room()
 	
 }
 
+Room::Room (bool isVip, int noRows, int* noOfSeatsPerRow) {
+	this->isRoomVIP(isVip);
+}
+
 //getters-incomplete
 bool Room::isRoomVIP()
 {
@@ -52,10 +56,9 @@ void Room::setNoRows(int noRows)
 
 void Room::setNoOfSeatsPerRow(const int* noOfSeatsPerRow, int noRows)
 {
-	if (this->noOfSeatsPerRow != nullptr)
-	{
+	
 		delete[] this->noOfSeatsPerRow;
-	}
+	
 	if (noOfSeatsPerRow == nullptr)
 	{
 		throw exception("noOfSeatsPerRow missing");

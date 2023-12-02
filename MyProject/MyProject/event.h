@@ -3,50 +3,45 @@
 #include <string>
 using namespace std;
 
-enum Month {
-	JANUARY = 1,
-	FEBRUARY,
-	MARCH,
-	APRIL,
-	MAY,
-	JUNE,
-	JULY,
-	AUGUST,
-	SEPTEMBER,
-	OCTOBER,
-	NOVEMBER,
-	DECEMBER
-};
 class Event {
 private:
-	string eventName;
-	Month month;
-	//string time;
-	//string date;
-	//int noEvents;
-	int noSeats;
-	int* seatTaken;
+	std:: string eventName;
+	std::string time;
+	std::string date;
+	int noAppearances;
+	
 
 public:
 	//static attributes
-	static int MIN_NO_OF_SEATS;
-	static int OCCUPIED;
-	static int FREE;
+	static int MIN_NO_OF_APPEARANCES;
+	
 public:
 	//gettters
-	string getEventName();
-	int getNoSeats();
-	int* getSeatTaken();
-	Month getMonth();
+	std::string getEventName();
+	std::string getTime();
+	std::string getDate();
+	int getNoAppearances();
+
 
 	//setters
-	void setEventName(string eventName);
-	void setNoSeats(int noSeats);
-	void setSeatTaken(const int* seatTaken, int noSeats);
+	void setEventName(std::string eventName);
+	void setTime(std::string time);
+	void setDate(std::string date);
+	void setNoAppearances(int noAppearances);
 	
 	//constructor
 	Event();
-
+	Event(std::string eventName, std::string time, std::string date, int noAppearances);
+	//copy constructor
+	Event(const Event& object);
 	//destructor
 	~Event();
+	//overloading operator +
+	Event operator+(int addAppearance);
+	Event operator=(Event event);
+	friend void operator>>(istream& console, Event& event);
 };
+
+//overloading << and >>
+void operator<<(ostream& console, Event& event);
+void operator>>(istream& console, Event& event);

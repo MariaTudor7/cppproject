@@ -52,20 +52,9 @@ int Ticket::getSeat()
 	return this->seat;
 }
 
-string Ticket::getCategoryName()
+CategoryType Ticket::getCategoryName()
 {
-	switch (this->category) {
-	case VIP:
-		return "VIP";
-	case NORMAL:
-		return "Normal";
-	case STUDENT:
-		return "Student";
-	case DISABILITY:
-		return "Disability";
-	case PROMO:
-		return "Promo";
-	}
+	return this->category;
 }
 
 //setters
@@ -133,7 +122,7 @@ Ticket Ticket::discount(int procent)
 {
 	if (procent > 0 && procent < 100) {
 		this->price = this->price - this->price * (procent / 100.0f);
-		this->category = PROMO;
+		//this->category = PROMO;
 	}
 	return *this;
 }
@@ -146,7 +135,18 @@ Ticket Ticket::giveTicketToSomeoneElse(char* otherPerson)
 	return *this;
 }
 
+bool Ticket::operator<=(Ticket& ticket) {
+	if (this->row <= ticket.row)
+		return true;
+	else
+		false;
+}
 
+Ticket Ticket::operator-(float amount)
+{
+	this->price -= amount;
+	return *this;
+}
 
 
 int Ticket:: MIN_NO_OF_SEATS = 1;
@@ -164,7 +164,25 @@ void operator<<(ostream& console, Ticket& ticket) {
 	console << endl << "Name:" << ticket.getName();
 	console << endl << "Row:" << ticket.getRow();
 	console << endl << "Seat:" << ticket.getSeat();
-	console << endl << "Category:" << ticket.getCategoryName();
+	console << endl << "Category:";
+	switch (ticket.category) {
+	case VIP:
+		console << "VIP";
+		break;
+	case NORMAL:
+		console << "Normal";
+		break;
+	case STUDENT:
+		console << "Student";
+		break;
+	case DISABILITY:
+		console << "Disability";
+		break;
+	case PROMO:
+		console << "Promo";
+		break;
+	}
+	
 	console << endl << "Price:" << ticket.getPrice();
 	console << endl;
 	 
@@ -174,7 +192,7 @@ void operator<<(ostream& console, Ticket& ticket) {
 
 void operator>>(istream& console, Ticket& ticket)
 {
-	cout << "Introduce ticket information1!" << endl;
+	cout << "Introduce ticket information!" << endl;
 
 	cout << "Full name of ticket owner (firstName lastName):";
 	string name;
@@ -191,27 +209,35 @@ void operator>>(istream& console, Ticket& ticket)
 		
     cout << "Price:";
 		console >> ticket.price;
-			
-	cout << "Ticket type (VIP=1, NORMAL=2, STUDENT=3, DISABILITY=4, PROMO=5): ";
-	int category;
-	console >> category;
-	switch (category) {
-	case 1:
-		ticket.setCategory(VIP);
-		break;
-	case 2:
-		ticket.setCategory(NORMAL);
-		break;
-	case 3:
-		ticket.setCategory(STUDENT);
-		break;
-	case 4:
-		ticket.setCategory(DISABILITY);
-		break;
-	case 5:
-		ticket.setCategory(PROMO);
-		break;
-	}
+		cout << "Ticket type (1 for VIP, 2 for NORMAL, 3 for STUDENT, 4 for DISABILITY, 5 for PROMO): ";
+		int categoryInput;
+		console >> categoryInput;
+
+		// Validate categoryInput and then set category
+		switch (categoryInput) {
+		case 1:
+			ticket.setCategory(VIP);
+			break;
+		case 2:
+			ticket.setCategory(NORMAL);
+			break;
+		case 3:
+			ticket.setCategory(STUDENT);
+			break;
+		case 4:
+			ticket.setCategory(DISABILITY);
+			break;
+		case 5:
+			ticket.setCategory(PROMO);
+			break;
+		default:
+			cout << "Invalid ticket type. Setting to NORMAL." << endl;
+			ticket.setCategory(NORMAL);
+			break;
+		}
 }
+			
+	
+	
 	
 

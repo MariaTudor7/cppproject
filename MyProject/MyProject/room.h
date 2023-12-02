@@ -8,6 +8,7 @@ private:
 	int noRows;
 	int* noOfSeatsPerRow;
 	
+	
 public:
 	//static attributes
 	static int MIN_NO_OF_ROWS;
