@@ -7,7 +7,7 @@ using namespace std;
 int main() 
 {
 	//TICKET
-	/*Ticket movieNapoleon((char*)"Catalina Catoiu", 10, 4, 30.5, VIP);
+	Ticket movieNapoleon((char*)"Catalina Catoiu", 10, 4, 30.5, VIP);
 	movieNapoleon.discount(10);
 	movieNapoleon.giveTicketToSomeoneElse((char*)"Nati Chivu");
 	movieNapoleon - 3;//the price goes down with 3
@@ -26,18 +26,19 @@ int main()
 		cout << movie2.getId();
 		cout << "sits in front of the person with ticket ";
 		cout << movieNapoleon.getId();
-	}*/
+	}
+	cout<<endl;
 
 
 
 
 	//EVENT
-	/*Event Napoleon("Napoleon", "10:45", "10.12.2019", 10);
+	Event Napoleon("Napoleon", "10:45", "10.12.2019", 10);
 	Napoleon.ChangeEventTime("11:00");
 	Napoleon.AppearanceCanceled();//substracts 1 appearance
 	Napoleon = Napoleon + 4; //adds 4 appearances of the movie
 	cout << Napoleon;
-	*/
+	cout<<endl;
 
 
 
