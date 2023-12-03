@@ -32,6 +32,10 @@ public:
 	//constructor
 	Event();
 	Event(std::string eventName, std::string time, std::string date, int noAppearances);
+	//generic methods
+	void ChangeEventTime(string newTime);
+	void AppearanceCanceled();
+	
 	//copy constructor
 	Event(const Event& object);
 	//destructor

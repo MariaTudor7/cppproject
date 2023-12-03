@@ -15,6 +15,9 @@ public:
 	static int MAX_NO_OF_ROWS;
 
 public:
+	//constructors
+	Room();
+	Room(bool isVip, int noRows, int* noOfSeatsPerRow);
 	//getters
 	bool isRoomVIP();
 	int getNoRows();
@@ -26,12 +29,25 @@ public:
 	void setNoOfSeatsPerRow(const int* noOfSeatsPerRow, int noRows);
 
 	//constrctors
-	Room();
+	//Room();
+	//Room(bool isVIP, int noRows, int* noOfSeatsPerRow);
+
+	//copy constructor
+	Room(const Room& object);
 
 
 	//destructor
 	~Room();
-
-	
-
+	//
+	int totalNoOfSeatsInTheRoom();
+	void addRow(int row);
+	//overloading ++(postincrementation)
+	Room operator++(int);
+	bool operator!=(Room& room);
+	friend void operator<<(ostream& console, Room& room);
+	friend void operator>>(istream& console, Room& room);
 };
+
+//overloading << and >>
+void operator<<(ostream& console, Room& room);
+void operator>>(istream& console, Room& room);

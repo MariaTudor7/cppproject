@@ -6,49 +6,58 @@
 using namespace std;
 int main() 
 {
-	//constructors implementation
-	Ticket movie((char*)"Catalina Catoiu", 10, 4, 30.5,  VIP);
-	Ticket movie2((char*)"Maria Tudor", 11, 6, 20, STUDENT);
-	Ticket movie3;
-	//cin >> movie3;
-	//cout << movie3;
-	
-	// Output ticket information
-	//cout << movie 
-	//cout<< endl;
-	//cout << movie2;
-	//cout<< endl;
-
-	// Perform ticket operations
-	//movie.discount(10);
-	//cout << "After applying a discount:" << endl;
-	//cout << movie
-	//cout<< endl;
-
-	//movie.giveTicketToSomeoneElse((char*)"Norris Mircescu");
-	//cout << "After giving the ticket to someone else:" << endl;
-	//cout << movie 
-	//cout<< endl;
-
+	//TICKET
+	/*Ticket movieNapoleon((char*)"Catalina Catoiu", 10, 4, 30.5, VIP);
+	movieNapoleon.discount(10);
+	movieNapoleon.giveTicketToSomeoneElse((char*)"Nati Chivu");
+	movieNapoleon - 3;//the price goes down with 3
+	cout << movieNapoleon;
+	Ticket movie2;
+	cin >> movie2;
 	//Compare tickets
-	/*if (movie <= movie2) {
-		cout << "The person with ticket " << movie.getId();
+	if (movieNapoleon <= movie2) {
+		cout << "The person with ticket ";
+		cout << movieNapoleon.getId();
 		cout << "sits in front or in the same row as the person with ticket ";
 		cout << movie2.getId();
 	}
-	else
-		cout << " The person with ticket " << movie2.getId();
-		cout << "sits in front of the person with ticket " 
-		cout<< movie.getId();*/
+	else {
+		cout << " The person with ticket ";
+		cout << movie2.getId();
+		cout << "sits in front of the person with ticket ";
+		cout << movieNapoleon.getId();
+	}*/
 
-	//movie - 3;
-	//cout << movie;
 
-	Event film("Napoleon", "10:45", "10.12.2019", 10);
-	//Event film;
-	//cin >> film;
-	film = film + 4;
-	cout << film;
+
+
+	//EVENT
+	/*Event Napoleon("Napoleon", "10:45", "10.12.2019", 10);
+	Napoleon.ChangeEventTime("11:00");
+	Napoleon.AppearanceCanceled();//substracts 1 appearance
+	Napoleon = Napoleon + 4; //adds 4 appearances of the movie
+	cout << Napoleon;
+	*/
+
+
+
+	//ROOM
+	int noSeats[] = { 10, 10, 11 };
+    Room roomN(0, 3, noSeats); 
+	roomN++;//adds a row with the same number of seats as the previous one
+	cout << roomN;
+	cout << "The total number of seats in the room is:";
+    cout << roomN.totalNoOfSeatsInTheRoom();
+	cout << endl;
+	int noSeats2[] = { 11, 11, 12, 12 };
+	Room room2(1, 4, noSeats2);
+	if (roomN != room2)
+	{
+		cout << "The rooms do not have the same number of rows";
+	}
+	else{
+		cout << "The rooms have the same number of rows";
+	}
 	
 }
 

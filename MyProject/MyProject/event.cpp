@@ -58,6 +58,14 @@ Event::Event(const Event& object) {
     this->noAppearances = object.noAppearances;
 
 }
+void Event:: ChangeEventTime(string newTime) {
+	this->time = newTime;
+}
+
+void Event::AppearanceCanceled()
+{
+	this->noAppearances--;
+}
 Event::~Event() {
 	
 }
